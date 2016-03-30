@@ -1,0 +1,35 @@
+{
+  "name": "@aptoma/lambda-papertrail-logger",
+  "version": "1.0.0",
+  "description": "A logger to send AWS Lambda logs to Papertrail",
+  "author": "Gunnar Lium <gunnar@aptoma.com>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aptoma/lambda-papertrail-logger.git"
+  },
+  "scripts": {
+    "test": "jscs index.js",
+    "release": "release-it -n -i patch",
+    "release:minor": "release-it -n -i minor",
+    "release:major": "release-it -n -i major"
+  },
+  "dependencies": {
+    "moment-timezone": "^0.5.3",
+    "winston": "^2.2.0",
+    "winston-papertrail": "gunnarlium/winston-papertrail#temp-fixes"
+  },
+  "license": "MIT",
+  "jscsConfig": {
+    "preset": "yandex",
+    "disallowMultipleVarDecl": "exceptUndefined",
+    "maximumLineLength": null,
+    "validateIndentation": "\t"
+  },
+  "npm": {
+    "publish": true
+  },
+  "github": {
+    "release": true
+  }
+}
