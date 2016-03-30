@@ -19,6 +19,11 @@ Usage
 var createLogger = require('@aptoma/lambda-papertrail-logger');
 
 exports.handler = function (event, context) {
+	var papertrailConfig = {
+		// @see https://papertrailapp.com/account/destinations
+		host: 'logs123.papertrail.com',
+		port: 12345
+	};
 	var log = createLogger(context, papertrailConfig);
 	log.info('Executing handler', event);
 };
@@ -26,9 +31,11 @@ exports.handler = function (event, context) {
 
 The logger is an extension of `winston.Logger`.
 
-In addition to being created with the relevant transports and formatters, it also exposes a `log.timerEvent(event)` method.
+### Log timer events
 
-`log.timerEvent(event)` will format a timer event created by [@aptoma/timer](https://github.com/aptoma/node.timer) for sending to our internal event analytics service:
+In addition to being created with the relevant transports and formatters, the logger also exposes a `log.timerEvent(event)` method.
+
+It will format a timer event created by [@aptoma/timer](https://github.com/aptoma/node.timer) for sending to our internal event analytics service:
 
 ```js
 var createLogger = require('@aptoma/lambda-papertrail-logger');
