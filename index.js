@@ -92,6 +92,7 @@ module.exports = function createLogger(context, papertrailConfig) {
 					_time: timestamp(),
 					msg: message
 				}, meta, {
+					level: level,
 					version: context.functionVersion,
 					requestId: context.awsRequestId
 				}));
