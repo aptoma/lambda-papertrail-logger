@@ -9,7 +9,7 @@
     "url": "git@github.com:aptoma/lambda-papertrail-logger.git"
   },
   "scripts": {
-    "test": "jscs index.js",
+    "test": "eslint index.js",
     "release": "release-it -n -i patch",
     "release:minor": "release-it -n -i minor",
     "release:major": "release-it -n -i major"
@@ -20,12 +20,6 @@
     "winston-papertrail": "gunnarlium/winston-papertrail#temp-fixes"
   },
   "license": "MIT",
-  "jscsConfig": {
-    "preset": "yandex",
-    "disallowMultipleVarDecl": "exceptUndefined",
-    "maximumLineLength": null,
-    "validateIndentation": "\t"
-  },
   "npm": {
     "publish": true
   },
