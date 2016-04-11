@@ -47,3 +47,11 @@ exports.handler = function (event, context) {
 	log.timerEvent(elapsed());
 };
 ```
+
+## Caveat!
+
+When using the 0.10 Lambda runtime, the process will terminate soon after `context.success/fail/done()` is called. In practice, this means that events may not be sent if the connection to Papertrail has not been established by this time. There's also a possibility that the last few events may not be sent anyway.
+
+When using the 4.3 runtime with callbacks, the process isn't terminated until the event loop is empty. This means that all events should be sent, but especially for scripts with very short durations, there's a possibility that the duration will be extended in order to ship the logs to Papertrail.
+
+If you prefer the 4.3 runtime to rather shut down early, set `context.callbackWaitsForEmptyEventLoop` to false. See http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html.
