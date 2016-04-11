@@ -1,0 +1,12 @@
+language: node_js
+
+node_js:
+- 4.3
+- 0.10
+
+script:
+  - npm run ci
+
+cache:
+  directories:
+    - node_modules

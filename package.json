@@ -10,6 +10,8 @@
   },
   "scripts": {
     "test": "eslint index.js",
+    "ci": "npm run lint",
+    "lint": "eslint index.js",
     "release": "release-it -n -i patch",
     "release:minor": "release-it -n -i minor",
     "release:major": "release-it -n -i major"
@@ -25,5 +27,9 @@
   },
   "github": {
     "release": true
+  },
+  "devDependencies": {
+    "@aptoma/eslint-config": "^3.1.0",
+    "eslint": "^2.7.0"
   }
 }
